@@ -1,0 +1,2 @@
+# ScrapyCompositeDemo
+Scrapy Composite Demo
