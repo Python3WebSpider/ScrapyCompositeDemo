@@ -7,7 +7,7 @@ import logging
 
 
 class AuthorizationMiddleware(object):
-    accountpool_url = 'http://localhost:6789/antispider7/random'
+    accountpool_url = 'http://192.168.2.3:6777/antispider7/random'
     logger = logging.getLogger('middlewares.authorization')
 
     async def process_request(self, request, spider):
@@ -22,7 +22,7 @@ class AuthorizationMiddleware(object):
 
 
 class ProxyMiddleware(object):
-    proxypool_url = 'http://localhost:5555/random'
+    proxypool_url = 'http://192.168.2.3:5555/random'
     logger = logging.getLogger('middlewares.proxy')
 
     async def process_request(self, request, spider):
