@@ -92,8 +92,13 @@ TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-SCHEDULER = "scrapy_redis_bloomfilter.scheduler.Scheduler"
+SCHEDULER = "gerapy_rabbitmq.scheduler.Scheduler"
+SCHEDULER_QUEUE_KEY = '%(spider)s_requests'
+
+RABBITMQ_CONNECTION_PARAMETERS = {
+    'host': '192.168.2.3',
+    'port': 5672
+}
+
 DUPEFILTER_CLASS = "scrapy_redis_bloomfilter.dupefilter.RFPDupeFilter"
 BLOOMFILTER_BIT = 20
-
-REDIS_URL = 'redis://192.168.2.3:6379'
