@@ -4,10 +4,10 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 import aiohttp
 import logging
-
+import os
 
 class AuthorizationMiddleware(object):
-    accountpool_url = 'http://localhost:6789/antispider7/random'
+    accountpool_url = os.getenv('ACCOUNTPOOL_URL')
     logger = logging.getLogger('middlewares.authorization')
 
     async def process_request(self, request, spider):
@@ -22,7 +22,7 @@ class AuthorizationMiddleware(object):
 
 
 class ProxyMiddleware(object):
-    proxypool_url = 'http://localhost:5555/random'
+    proxypool_url = os.getenv('PROXYPOOL_URL')
     logger = logging.getLogger('middlewares.proxy')
 
     async def process_request(self, request, spider):
