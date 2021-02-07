@@ -1,9 +1,6 @@
 import json
-
 from scrapy import Request, Spider
-
 from scrapycompositedemo.items import BookItem
-
 
 class BookSpider(Spider):
     name = 'book'
