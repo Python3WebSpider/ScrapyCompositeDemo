@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
         - env:
-            - name: REDIS_HOST
-              value: redis-master.crawler.svc.cluster.local
-            - name: REDIS_PORT
-              value: '6379'
+            - name: ACCOUNTPOOL_URL
+              value: 'http://accountpool.crawler.svc.cluster.local:6777/antispider7/random'
+            - name: PROXYPOOL_URL
+              value: 'http://proxypool.crawler.svc.cluster.local:6777/antispider7/random'
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
