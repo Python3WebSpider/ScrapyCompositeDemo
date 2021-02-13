@@ -18,14 +18,15 @@ spec:
       containers:
         - env:
             - name: REDIS_HOST
-              value: redis-master.crawler.svc.cluster.local
-            - name: REDIS_PORT
-              value: '6379'
-            - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: redis
-                  key: redis-password
+                  key: host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: port
           image: germey/proxypool
           name: proxypool
           resources:

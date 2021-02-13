@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis
+  name: redis
+  namespace: crawler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - image: redis:alpine
+          name: redis
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "300m"
+            requests:
+              memory: "500Mi"
+              cpu: "200m"
+          ports:
+            - containerPort: 6379

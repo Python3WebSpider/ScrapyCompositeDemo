@@ -27,3 +27,4 @@ class BookSpider(Spider):
         for field in item.fields:
             item[field] = data.get(field)
         yield item
+

@@ -6,9 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-from environs import Env
-
-env = Env()
+import os
 
 BOT_NAME = 'scrapycompositedemo'
 
@@ -97,6 +95,4 @@ TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
-REDIS_HOST = env.str('REDIS_HOST', 'localhost')
-REDIS_PORT = env.int('REDIS_PORT', 6379)
-REDIS_PASSWORD = env.str('REDIS_PASSWORD', None)
+REDIS_URL = os.getenv('REDIS_URL')

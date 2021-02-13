@@ -2,42 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: accountpool
-  name: accountpool
+    app: scrapycompositedemo
+  name: scrapycompositedemo
   namespace: crawler
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: accountpool
+      app: scrapycompositedemo
   template:
     metadata:
       labels:
-        app: accountpool
+        app: scrapycompositedemo
     spec:
       containers:
         - env:
             - name: ACCOUNTPOOL_URL
               value: 'http://accountpool.crawler.svc.cluster.local:6777/antispider7/random'
             - name: PROXYPOOL_URL
-              value: 'http://proxypool.crawler.svc.cluster.local:6777/antispider7/random'
-            - name: REDIS_PASSWORD
+              value: 'http://proxypool.crawler.svc.cluster.local:5555/random'
+            - name: REDIS_URL
               valueFrom:
                 secretKeyRef:
                   name: redis
-                  key: redis-password
-            - name: API_PORT
-              value: '6777'
-            - name: WEBSITE
-              value: antispider7
-          image: germey/accountpool
-          name: accountpool
-          resources:
-            limits:
-              memory: "500Mi"
-              cpu: "300m"
-            requests:
-              memory: "500Mi"
-              cpu: "300m"
-          ports:
-            - containerPort: 6777
+                  key: url
+          image: germey/scrapycompositedemo
+          name: scrapycompositedemo
