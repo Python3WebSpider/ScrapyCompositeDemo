@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: proxypool
+  name: proxypool
+  namespace: crawler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxypool
+  template:
+    metadata:
+      labels:
+        app: proxypool
+    spec:
+      containers:
+        - env:
+            - name: REDIS_HOST
+              value: redis-master.crawler.svc.cluster.local
+            - name: REDIS_PORT
+              value: '6379'
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: redis-password
+          image: germey/proxypool
+          name: proxypool
+          resources:
+            limits:
+              memory: "500Mi"
+              cpu: "300m"
+            requests:
+              memory: "500Mi"
+              cpu: "300m"
+          ports:
+            - containerPort: 5555

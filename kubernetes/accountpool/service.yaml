@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: accountpool
+  name: accountpool
+  namespace: crawler
+spec:
+  ports:
+    - name: "6777"
+      port: 6777
+      targetPort: 6777
+  selector:
+    app: accountpool
