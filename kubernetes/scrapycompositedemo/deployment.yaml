@@ -22,9 +22,13 @@ spec:
             - name: PROXYPOOL_URL
               value: 'http://proxypool.crawler.svc.cluster.local:5555/random'
             - name: REDIS_URL
-              valueFrom:
-                secretKeyRef:
-                  name: redis
-                  key: url
+              value: 'redis://redis.crawler.svc.cluster.local:6379'
           image: germey/scrapycompositedemo
           name: scrapycompositedemo
+          resources:
+            limits:
+              memory: "500Mi"
+              cpu: "300m"
+            requests:
+              memory: "500Mi"
+              cpu: "300m"
