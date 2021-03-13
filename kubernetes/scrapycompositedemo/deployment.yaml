@@ -32,3 +32,5 @@ spec:
             requests:
               memory: "500Mi"
               cpu: "300m"
+          ports:
+            - containerPort: 9104
