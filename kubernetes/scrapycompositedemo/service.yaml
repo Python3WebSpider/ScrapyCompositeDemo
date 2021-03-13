@@ -7,8 +7,8 @@ metadata:
   namespace: crawler
 spec:
   ports:
-    - name: "9104"
-      port: 9104
-      targetPort: 9104
+    - name: "9410"
+      port: 9410
+      targetPort: 9410
   selector:
     app: scrapycompositedemo
