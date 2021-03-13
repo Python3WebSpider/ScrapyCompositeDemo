@@ -2,3 +2,4 @@ scrapy
 aiohttp
 scrapy-redis
 environs
+gerapy-prometheus-exporter==0.0.1b1

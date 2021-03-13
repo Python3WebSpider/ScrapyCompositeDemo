@@ -96,3 +96,8 @@ SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 REDIS_URL = os.getenv('REDIS_URL')
+
+EXTENSIONS = {
+    'gerapy_prometheus_exporter.extension.WebService': 500,
+}
+

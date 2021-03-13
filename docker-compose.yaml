@@ -12,4 +12,6 @@ services:
     environment:
       ACCOUNTPOOL_URL: 'http://host.docker.internal:6777/antispider7/random'
       PROXYPOOL_URL: 'http://host.docker.internal:5555/random'
-      REDIS_HOST: 'redis://redis:6379'
+      REDIS_URL: 'redis://redis:6379'
+    ports:
+      - "9410:9410"
