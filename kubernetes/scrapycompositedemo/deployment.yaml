@@ -30,5 +30,7 @@ spec:
               memory: "500Mi"
               cpu: "300m"
             requests:
-              memory: "500Mi"
-              cpu: "300m"
+              memory: "200Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 9410
