@@ -3,3 +3,4 @@ aiohttp
 scrapy-redis
 environs
 gerapy-prometheus-exporter
+gerapy-redis
