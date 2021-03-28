@@ -94,7 +94,7 @@ TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-STATS_CLASS = "gerapy_redis.stats.RedisStatsCollector"
+STATS_CLASS = "scrapy_redis.stats.RedisStatsCollector"
 
 REDIS_URL = os.getenv('REDIS_URL')
 

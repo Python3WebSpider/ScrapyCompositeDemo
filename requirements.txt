@@ -1,6 +1,5 @@
 scrapy
 aiohttp
-scrapy-redis
+scrapy-redis>=0.7.1
 environs
 gerapy-prometheus-exporter
-gerapy-redis
